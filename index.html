@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Mobile</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; color: #c9d1d9; font-family: ui-monospace, monospace; font-size: 14px; padding: 16px; }
+  h1 { color: #58a6ff; font-size: 18px; margin-bottom: 4px; }
+  .subtitle { color: #6e7681; font-size: 12px; margin-bottom: 24px; }
+  .ssh-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 14px; margin-bottom: 24px; }
+  .ssh-box label { color: #6e7681; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px; }
+  .ssh-row { display: flex; align-items: center; gap: 10px; }
+  .ssh-row code { color: #e6edf3; flex: 1; font-size: 13px; }
+  section { margin-bottom: 24px; }
+  section h2 { color: #6e7681; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
+  .repo { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; }
+  .repo-name { color: #e6edf3; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+  .repo-desc { color: #6e7681; font-size: 12px; margin-bottom: 10px; }
+  .cmd { background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 8px 10px; font-size: 12px; color: #3fb950; word-break: break-all; margin-bottom: 8px; }
+  .copy-btn { width: 100%; background: #21262d; border: 1px solid #30363d; color: #c9d1d9; border-radius: 6px; padding: 8px; font-family: inherit; font-size: 13px; cursor: pointer; transition: background 0.15s; }
+  .copy-btn:active { background: #30363d; }
+  .copy-btn.copied { background: #0f3324; border-color: #3fb950; color: #3fb950; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-bottom: 8px; }
+  .tag.perso { background: #0d2137; color: #58a6ff; border: 1px solid #1f4f7f; }
+  .tag.sd { background: #1f1535; color: #a371f7; border: 1px solid #3d2170; }
+</style>
+</head>
+<body>
+
+<h1>Claude Mobile</h1>
+<p class="subtitle">SSH → copier la commande → coller dans ConnectBot</p>
+
+<div class="ssh-box">
+  <label>Connexion SSH (à configurer dans ConnectBot)</label>
+  <div class="ssh-row">
+    <code>oscar@100.104.109.105</code>
+    <button class="copy-btn" style="width:auto;padding:6px 12px" onclick="copyText('oscar@100.104.109.105', this)">Copier</button>
+  </div>
+</div>
+
+<section>
+  <h2>Projets perso</h2>
+
+  <div class="repo">
+    <div class="tag perso">oscardcstudio</div>
+    <div class="repo-name">Auto Polymarket</div>
+    <div class="repo-desc">Bot de trading automatique Polymarket</div>
+    <div class="cmd">cd /c/dev/claude/oscardcstudio/Auto_Polymarket && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/oscardcstudio/Auto_Polymarket && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag perso">oscardcstudio</div>
+    <div class="repo-name">Sync-Play</div>
+    <div class="repo-desc">Synchronisation de playlists</div>
+    <div class="cmd">cd /c/dev/claude/oscardcstudio/Sync-Play && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/oscardcstudio/Sync-Play && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag perso">oscardcstudio</div>
+    <div class="repo-name">Subvention Match</div>
+    <div class="repo-desc">Matching subventions</div>
+    <div class="cmd">cd /c/dev/claude/oscardcstudio/subvention_match && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/oscardcstudio/subvention_match && claude', this)">Copier la commande</button>
+  </div>
+</section>
+
+<section>
+  <h2>Studio Descartes</h2>
+
+  <div class="repo">
+    <div class="tag sd">SD</div>
+    <div class="repo-name">Philo Runner</div>
+    <div class="repo-desc">App philosophie</div>
+    <div class="cmd">cd /c/dev/claude/studio_descartes/philo_runner && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/studio_descartes/philo_runner && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag sd">SD</div>
+    <div class="repo-name">DA Pipeline</div>
+    <div class="repo-desc">Génération d'images LoRA</div>
+    <div class="cmd">cd /c/dev/claude/studio_descartes/studio-descartes-da && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/studio_descartes/studio-descartes-da && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag sd">SD</div>
+    <div class="repo-name">Social</div>
+    <div class="repo-desc">Contenus réseaux sociaux</div>
+    <div class="cmd">cd /c/dev/claude/studio_descartes/studio-descartes-social && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/studio_descartes/studio-descartes-social && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag sd">SD</div>
+    <div class="repo-name">Centre Appel</div>
+    <div class="repo-desc">Outil centre d'appel SD</div>
+    <div class="cmd">cd /c/dev/claude/studio_descartes/studio-descartes-centre-appel && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/studio_descartes/studio-descartes-centre-appel && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag sd">SD</div>
+    <div class="repo-name">Info</div>
+    <div class="repo-desc">Site info / infra IA</div>
+    <div class="cmd">cd /c/dev/claude/studio_descartes/studio-descartes-info && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/studio_descartes/studio-descartes-info && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag sd">SD</div>
+    <div class="repo-name">Dashboard</div>
+    <div class="repo-desc">Dashboard Studio Descartes</div>
+    <div class="cmd">cd /c/dev/claude/studio_descartes/studio-descartes-dashboard && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/studio_descartes/studio-descartes-dashboard && claude', this)">Copier la commande</button>
+  </div>
+
+  <div class="repo">
+    <div class="tag sd">SD</div>
+    <div class="repo-name">Questionnaire</div>
+    <div class="repo-desc">Outil questionnaire SD</div>
+    <div class="cmd">cd /c/dev/claude/studio_descartes/studio-descartes-questionnaire && claude</div>
+    <button class="copy-btn" onclick="copyText('cd /c/dev/claude/studio_descartes/studio-descartes-questionnaire && claude', this)">Copier la commande</button>
+  </div>
+</section>
+
+<script>
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copié !';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+}
+</script>
+</body>
+</html>
