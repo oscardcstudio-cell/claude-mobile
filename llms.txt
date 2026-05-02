@@ -1,0 +1,13 @@
+# claude-mobile
+> Interface mobile HTML — accès SSH rapide aux repos depuis téléphone. Projet perso Oscar. Compte GitHub `oscardcstudio-cell`.
+
+## Vue d'ensemble
+- [index.html](index.html): Page unique — liste des repos SD et perso avec commandes SSH copiables en un tap
+
+## Stack
+HTML pur · CSS inline · JavaScript vanilla (pas de framework, pas de build)
+
+## Points non-évidents
+- Pas de serveur — page statique ouverte directement sur mobile
+- Le `package.json` est minimal (probablement pour un éventuel serveur statique)
+- Compte GitHub : `oscardcstudio-cell`
